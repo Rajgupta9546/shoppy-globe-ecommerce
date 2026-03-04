@@ -7,7 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// 🔥 Lazy Loading for Code Splitting
+//  Lazy Loading for Code Splitting
 const App = lazy(() => import("./App"));
 const Home = lazy(() => import("./pages/Home"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    {/* 🔥 Suspense for Lazy Components */}
+    {/*  Suspense for Lazy Components */}
     <Suspense fallback={<h2 style={{textAlign:"center"}}>Loading...</h2>}>
       <RouterProvider router={router} />
     </Suspense>
