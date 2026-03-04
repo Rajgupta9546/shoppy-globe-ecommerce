@@ -1,20 +1,24 @@
-import React from "react";
-import "../App.css";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import "../index.css";
 
 function Header() {
-  return (
-    <header className="header">
-      <div className="logo">MyApp</div>
+  const cartItems = useSelector(state => state.cart.items);
 
-      <nav className="nav">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </nav>
-    </header>
+  const totalQty = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  return (
+    <div className="header">
+      <h2>ShoppyGlobe</h2>
+
+      <div>
+        <Link to="/">Home</Link>
+        <Link to="/cart">Cart ({totalQty})</Link>
+      </div>
+    </div>
   );
 }
 
